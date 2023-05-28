@@ -1,15 +1,15 @@
 import React from 'react';
+import '../stylesheets/Testimonial.css'
 
-function Testimonial() {
+function Testimonial(props) {
   return (
     <div className='testimonial-container'>
-      <img className='testimonial-image' src={require('../images/emma-testimonial.png')} alt='Emma Picture' />
+      <img className='testimonial-image' src={require(`../images/${props.image}-testimonial.png`)} alt={`${props.altPic} Picture`} />
       <div className='text-testimonial-container'>
-        <p className='testimonial-name'>Emma en Suecia</p>
-        <p className='testimonial-charge'>Ingeniera de Software in Spotify</p>
-        <p className='testimonial-text'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius, recusandae nesciunt! Nulla explicabo deleniti aspernatur molestias iure odio eaque aperiam sed facere obcaecimos id est.</p>
+        <p className='testimonial-name'><strong>{props.name}</strong> in {props.country}</p>
+        <p className='testimonial-charge'>{props.charge} in <strong>{props.company}</strong></p>
+        <p className='testimonial-text' dangerouslySetInnerHTML={{ __html: props.testimonial }}></p>
       </div>
-    
     </div>
   );
 }
